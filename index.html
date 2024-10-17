@@ -22,7 +22,10 @@
             <div class="collapse navbar-collapse" id="navbarNav">
               <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="#products">Products</a>
+                  <a class="nav-link active" aria-current="page" href="#categories">Categories</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#products">Products</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="#about">About Us</a>
@@ -36,9 +39,30 @@
         </nav>
     </header>
 
-
-
     <main>
+        <!-- Categories Section -->
+        <section id="categories">
+            <h2>Categories of Treated Posts</h2>
+            <div id="category-cards" class="row">
+                <div class="col-md-4 category-item">
+                    <h3>Fencing Posts</h3>
+                    <p>Posts designed for agricultural and commercial fencing.</p>
+                    <a href="#products" class="btn btn-primary">View Products</a>
+                </div>
+                <div class="col-md-4 category-item">
+                    <h3>Fibre Posts</h3>
+                    <p>Lightweight, durable posts suitable for various applications.</p>
+                    <a href="#products" class="btn btn-primary">View Products</a>
+                </div>
+                <div class="col-md-4 category-item">
+                    <h3>Electricity Poles</h3>
+                    <p>Posts designed for electrical installations and power line support.</p>
+                    <a href="#products" class="btn btn-primary">View Products</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Products Section -->
         <section id="products">
             <h2>Available Treated Posts</h2>
             <div id="product-cards" class="row">
@@ -104,7 +128,6 @@
             </form>
         </section>
 
-       
         <!-- Modal for Delete Confirmation -->
         <div id="deleteModal" class="modal" style="display:none;">
             <div class="modal-content">
@@ -137,4 +160,3 @@
     <script src="index.js"></script> 
 </body>
 </html>
-

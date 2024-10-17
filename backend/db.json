@@ -1,29 +1,59 @@
 {
-    "products": [
-      {
-        "id": 1,
-        "name": "Treated Fencing Post",
-        "description": "Durable, treated wooden post ideal for fencing.",
-        "price": 20.00,
-        "image": "fencing_post.jpg",
-        "comments": ["Great quality!", "Highly recommend"]
-      },
-      {
-        "id": 2,
-        "name": "Fiber Post",
-        "description": "Strong, lightweight fiber post for versatile use.",
-        "price": 35.99,
-        "image": "fiber_post.jpg",
-        "comments": []
-      },
-      {
-        "id": 3,
-        "name": "Kenya Power Post",
-        "description": "Power posts designed for Kenya Power projects.",
-        "price": 50.50,
-        "image": "kenya_power_post.jpg",
-        "comments": ["Perfect for utility projects"]
-      }
-    ]
+  "categories": [
+    {
+      "id": 1,
+      "name": "Fencing Posts",
+      "description": "Posts designed for agricultural and commercial fencing."
+    },
+    {
+      "id": 2,
+      "name": "Fibre Posts",
+      "description": "Lightweight, durable posts suitable for various applications."
+    },
+    {
+      "id": 3,
+      "name": "Electricity Poles",
+      "description": "Posts designed for electrical installations and power line support."
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "name": "Fencing Post A",
+      "description": "Durable treated fencing post ideal for agricultural use.",
+      "price": 25.00,
+      "image": "./WhatsApp Image 2024-10-16 at 11.37.57 AM (2).jpeg",
+      "categoryId": 1
+    },
+    {
+      "id": 2,
+      "name": "Fibre Post B",
+      "description": "Lightweight and strong fibre post suitable for various applications.",
+      "price": 30.00,
+      "image": "./WhatsApp Image 2024-10-16 at 11.37.57 AM (2).jpeg",
+      "categoryId": 2
+    },
+    {
+      "id": 3,
+      "name": "Kenya Power Post C",
+      "description": "High-quality treated post designed for electrical installations.",
+      "price": 40.00,
+      "image": "./WhatsApp Image 2024-10-16 at 11.37.57 AM (2).jpeg",
+      "categoryId": 3
+    },
+    {
+      "id": 4,
+      "name": "Kenya Power Post D",
+      "description": "High-quality treated post designed for electrical installations.",
+      "price": 60.00,
+      "image": "./WhatsApp Image 2024-10-16 at 11.37.57 AM (2).jpeg",
+      "categoryId": 3
+    }
+  ],
+  "about": {
+    "companyName": "Petam",
+    "description": "Petam connects suppliers and customers in the treated posts market, providing easy access to high-quality products.",
+    "contactEmail": "andygitau444@mail.com",
+    "contactPhone": "0722250648"
   }
-  
+}

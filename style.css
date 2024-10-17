@@ -10,7 +10,7 @@ header {
     display: flex;
     align-items: center; /* Center items vertically */
     justify-content: space-between; /* Space between logo and nav */
-    background-color: #007bff; /* Navbar background color */
+    background-color: #464747ad; /* Navbar background color */
     color: white;
     padding: 15px 20px; /* Adjust padding for better spacing */
 }
@@ -59,6 +59,7 @@ main {
 .row {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between; /* Add spacing between product items */
 }
 
 .product-item {
@@ -67,7 +68,8 @@ main {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
     padding: 15px;
-    flex-basis: calc(33.333% - 20px); /* Three columns layout */
+    flex-basis: calc(33.333% - 20px); /* Three columns layout with 20px gap */
+    box-sizing: border-box; /* Ensure padding and border are included in width */
 }
 
 h2 {
@@ -85,8 +87,36 @@ footer {
     background-color: #007bff; /* Same as header */
     color: white;
 }
-*{
-    justify-content: center;
-    justify-items: flex-start;
-    justify-content: space-evenly;
+
+/* Category Section Styles */
+.category-item {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 20px;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.category-item h3 {
+    margin-top: 0;
+    color: #007bff;
+}
+
+.category-item p {
+    margin: 10px 0;
+}
+
+.category-item .btn {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 3px;
+    transition: background-color 0.3s ease;
+}
+
+.category-item .btn:hover {
+    background-color: #0056b3;
 }
