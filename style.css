@@ -1,0 +1,92 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    display: flex;
+    align-items: center; /* Center items vertically */
+    justify-content: space-between; /* Space between logo and nav */
+    background-color: #007bff; /* Navbar background color */
+    color: white;
+    padding: 15px 20px; /* Adjust padding for better spacing */
+}
+
+.logo-container img {
+    height: 50px; /* Set logo height */
+}
+
+h1 {
+    margin: 0; /* Remove default margin from h1 */
+    font-size: 24px; /* Set font size for title */
+}
+
+nav ul {
+    list-style-type: none; /* Remove bullet points */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+}
+
+nav ul li {
+    display: inline; /* Display list items inline */
+    margin-left: 20px; /* Space between nav items */
+}
+
+nav ul li a {
+    color: white; /* Link color */
+    text-decoration: none; /* Remove underline from links */
+    font-weight: bold; /* Make links bold */
+    transition: color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+nav ul li a:hover {
+    color: #ffcc00; /* Change link color on hover */
+}
+
+/* Main Content */
+main {
+    padding: 20px;
+}
+
+/* Products Section */
+#products {
+    margin-bottom: 40px;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.product-item {
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    padding: 15px;
+    flex-basis: calc(33.333% - 20px); /* Three columns layout */
+}
+
+h2 {
+    color: #007bff;
+}
+
+p {
+    margin-bottom: 10px;
+}
+
+/* Footer Styles */
+footer {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #007bff; /* Same as header */
+    color: white;
+}
+*{
+    justify-content: center;
+    justify-items: flex-start;
+    justify-content: space-evenly;
+}

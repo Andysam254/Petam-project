@@ -1,0 +1,29 @@
+{
+    "products": [
+      {
+        "id": 1,
+        "name": "Treated Fencing Post",
+        "description": "Durable, treated wooden post ideal for fencing.",
+        "price": 20.00,
+        "image": "fencing_post.jpg",
+        "comments": ["Great quality!", "Highly recommend"]
+      },
+      {
+        "id": 2,
+        "name": "Fiber Post",
+        "description": "Strong, lightweight fiber post for versatile use.",
+        "price": 35.99,
+        "image": "fiber_post.jpg",
+        "comments": []
+      },
+      {
+        "id": 3,
+        "name": "Kenya Power Post",
+        "description": "Power posts designed for Kenya Power projects.",
+        "price": 50.50,
+        "image": "kenya_power_post.jpg",
+        "comments": ["Perfect for utility projects"]
+      }
+    ]
+  }
+  

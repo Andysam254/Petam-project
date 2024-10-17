@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Petam - Treated Posts Marketplace</title>
+    <link rel="stylesheet" href="./style.css"> <!-- Link to your CSS file -->
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="./Petam logo.webp" alt="Petam Logo" style="height: 50px;">
+        </div>
+        <h1>Petam - Treated Posts Marketplace</h1>
+    
+        <!-- Bootstrap Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="#products">Products</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#about">About Us</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#contact">Contact</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+    </header>
+
+
+
+    <main>
+        <section id="products">
+            <h2>Available Treated Posts</h2>
+            <div id="product-cards" class="row">
+                <!-- Static product cards -->
+                <div class="col-md-4 product-item">
+                    <h3>Fencing Post A</h3>
+                    <img src="./WhatsApp Image 2024-10-16 at 11.37.57 AM (2).jpeg" alt="Fencing Post A" style="width: 100%; height: auto;">
+                    <p>Description: Durable treated fencing post ideal for agricultural use.</p>
+                    <p>Price: $25.00</p>
+                    <button onclick="viewProductDetails(1)">Add to cart</caption></button>
+                    <button onclick="viewProductDetails(1)">delete</button>
+                    <button onclick="viewProductDetails(1)">update</button>
+                </div>
+
+                <div class="col-md-4 product-item">
+                    <h3>Fibre Post B</h3>
+                    <img src="./WhatsApp Image 2024-10-16 at 11.37.57 AM (2).jpeg" alt="Fencing Post A" style="width: 100%; height: auto;">
+                    <p>Description: Lightweight and strong fibre post suitable for various applications.</p>
+                    <p>Price: $30.00</p>
+                    <button onclick="viewProductDetails(1)">Add to cart</caption></button>
+                    <button onclick="viewProductDetails(1)">delete</button>
+                    <button onclick="viewProductDetails(1)">update</button>
+                </div>
+
+                <div class="col-md-4 product-item">
+                    <h3>Kenya Power Post C</h3>
+                    <img src="./WhatsApp Image 2024-10-16 at 11.37.57 AM (2).jpeg" alt="Fencing Post A" style="width: 100%; height: auto;">
+                    <p>Description: High-quality treated post designed for electrical installations.</p>
+                    <p>Price: $40.00</p>
+                    <button onclick="viewProductDetails(1)">Add to cart</caption></button>
+                    <button onclick="viewProductDetails(1)">delete</button>
+                    <button onclick="viewProductDetails(1)">update</button>
+                </div>
+
+                <div class="col-md-4 product-item">
+                    <h3>Kenya Power Post C</h3>
+                    <img src="./WhatsApp Image 2024-10-16 at 11.37.57 AM (2).jpeg" alt="Fencing Post A" style="width: 100%; height: auto;">
+                    <p>Description: High-quality treated post designed for electrical installations.</p>
+                    <p>Price: $60.00</p>
+                    <button onclick="viewProductDetails(1)">Add to cart</caption></button>
+                    <button onclick="viewProductDetails(1)">delete</button>
+                    <button onclick="viewProductDetails(1)">update</button>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="product-details" style="display: none;">
+            <h2>Product Details</h2>
+            <div id="details-content">
+                <!-- Static details for a selected product -->
+                <!-- This will be dynamically populated with JavaScript -->
+            </div>
+            <button onclick="closeDetails()">Close</button>
+        </section>
+
+        <section id="purchase-section" style="display: none;">
+            <h2>Purchase Product</h2>
+            <form id="purchase-form" onsubmit="handlePurchase(event)">
+                <label for="product-id">Product ID:</label>
+                <input type="text" id="product-id" required placeholder="Enter Product ID">
+                <button type="submit">Purchase</button>
+            </form>
+        </section>
+
+       
+        <!-- Modal for Delete Confirmation -->
+        <div id="deleteModal" class="modal" style="display:none;">
+            <div class="modal-content">
+                <span onclick="closeModal()" class="close" title="Close Modal">×</span>
+                <p>Are you sure you want to delete this product?</p>
+                <button id="confirmDeleteBtn">Yes, Delete</button>
+                <button onclick="closeModal()">Cancel</button>
+            </div>
+        </div>
+        
+
+        <section id="about">
+            <h2>About Us</h2>
+            <p>Petam connects suppliers and customers in the treated posts market, providing easy access to high-quality products.</p>
+        </section>
+
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <p>Email: andygitau444@mail.com</p>
+            <p>Phone N.o.: 0722250648</p>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Petam. All rights reserved.</p>
+    </footer>
+
+    <!-- Link to your JavaScript file -->
+    <script src="index.js"></script> 
+</body>
+</html>
+
