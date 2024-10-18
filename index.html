@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Petam - Treated Posts Marketplace</title>
     <link rel="stylesheet" href="./style.css"> <!-- Link to your CSS file -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
 </head>
 <body>
     <header>
@@ -12,7 +15,7 @@
             <img src="./Petam logo.webp" alt="Petam Logo" style="height: 50px;">
         </div>
         <h1>Petam - Treated Posts Marketplace</h1>
-    
+        
         <!-- Bootstrap Navbar -->
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
           <div class="container-fluid">
@@ -33,11 +36,17 @@
                 <li class="nav-item">
                   <a class="nav-link" href="#contact">Contact</a>
                 </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#cart">
+                    <i class="fas fa-shopping-cart"></i> Cart
+                  </a>
+                </li>
               </ul>
             </div>
           </div>
         </nav>
     </header>
+    
 
     <main>
         <!-- Categories Section -->
@@ -59,6 +68,11 @@
                     <p>Posts designed for electrical installations and power line support.</p>
                     <a href="#products" class="btn btn-primary">View Products</a>
                 </div>
+                <div class="col-md-4 category-item">
+                    <h3>Round Poles</h3>
+                    <p>Posts designed for electrical installations and power line support.</p>
+                    <a href="#products" class="btn btn-primary">View Products</a>
+                </div>
             </div>
         </section>
 
@@ -72,43 +86,50 @@
                     <img src="./WhatsApp Image 2024-10-16 at 11.37.57 AM (2).jpeg" alt="Fencing Post A" style="width: 100%; height: auto;">
                     <p>Description: Durable treated fencing post ideal for agricultural use.</p>
                     <p>Price: $25.00</p>
-                    <button onclick="viewProductDetails(1)">Add to cart</caption></button>
-                    <button onclick="viewProductDetails(1)">delete</button>
-                    <button onclick="viewProductDetails(1)">update</button>
+                    <button onclick="viewProductDetails(1)">Add to cart</button>
+                    <button onclick="viewProductDetails(1)">Delete</button>
+                    <button onclick="viewProductDetails(1)">Update</button>
                 </div>
 
                 <div class="col-md-4 product-item">
                     <h3>Fibre Post B</h3>
-                    <img src="./WhatsApp Image 2024-10-16 at 11.37.57 AM (2).jpeg" alt="Fencing Post A" style="width: 100%; height: auto;">
+                    <img src="./WhatsApp Image 2024-10-16 at 11.38.40 AM.jpeg" alt="Fibre Post B" style="width: 100%; height: auto;">
                     <p>Description: Lightweight and strong fibre post suitable for various applications.</p>
                     <p>Price: $30.00</p>
-                    <button onclick="viewProductDetails(1)">Add to cart</caption></button>
-                    <button onclick="viewProductDetails(1)">delete</button>
-                    <button onclick="viewProductDetails(1)">update</button>
+                    <button onclick="viewProductDetails(1)">Add to cart</button>
+                    <button onclick="viewProductDetails(1)">Delete</button>
+                    <button onclick="viewProductDetails(1)">Update</button>
                 </div>
 
                 <div class="col-md-4 product-item">
                     <h3>Kenya Power Post C</h3>
-                    <img src="./WhatsApp Image 2024-10-16 at 11.37.57 AM (2).jpeg" alt="Fencing Post A" style="width: 100%; height: auto;">
+                    <img src="./WhatsApp Image 2024-10-16 at 11.38.45 AM(1).jpeg" alt="Kenya Power Post C" style="width: 100%; height: auto;">
                     <p>Description: High-quality treated post designed for electrical installations.</p>
                     <p>Price: $40.00</p>
-                    <button onclick="viewProductDetails(1)">Add to cart</caption></button>
-                    <button onclick="viewProductDetails(1)">delete</button>
-                    <button onclick="viewProductDetails(1)">update</button>
+                    <button onclick="viewProductDetails(1)">Add to cart</button>
+                    <button onclick="viewProductDetails(1)">Delete</button>
+                    <button onclick="viewProductDetails(1)">Update</button>
                 </div>
 
                 <div class="col-md-4 product-item">
-                    <h3>Kenya Power Post C</h3>
-                    <img src="./WhatsApp Image 2024-10-16 at 11.37.57 AM (2).jpeg" alt="Fencing Post A" style="width: 100%; height: auto;">
+                    <h3>Kenya Power Post D</h3>
+                    <img src="./WhatsApp Image 2024-10-16 at 11.38.49 AM.jpeg" alt="Kenya Power Post D" style="width: 100%; height: auto;">
                     <p>Description: High-quality treated post designed for electrical installations.</p>
                     <p>Price: $60.00</p>
-                    <button onclick="viewProductDetails(1)">Add to cart</caption></button>
-                    <button onclick="viewProductDetails(1)">delete</button>
-                    <button onclick="viewProductDetails(1)">update</button>
+                    <button onclick="viewProductDetails(1)">Add to cart</button>
+                    <button onclick="viewProductDetails(1)">Delete</button>
+                    <button onclick="viewProductDetails(1)">Update</button>
                 </div>
 
             </div>
+
+            <!-- Create Button -->
+            <div class="create-button-container">
+                <button class="btn-create" onclick="openCreateProductModal()">Create New Product</button>
+            </div>
+
         </section>
+
 
         <section id="product-details" style="display: none;">
             <h2>Product Details</h2>
@@ -137,7 +158,79 @@
                 <button onclick="closeModal()">Cancel</button>
             </div>
         </div>
-        
+
+                <!-- Modal for Update Product -->
+        <div id="updateModal" class="modal" style="display:none;">
+            <div class="modal-content">
+                <span onclick="closeModal()" class="close" title="Close Modal">×</span>
+                <h2>Update Product</h2>
+                <form id="update-form" onsubmit="updateProduct(event)">
+                    <input type="hidden" id="product-id">
+                    <label for="product-description">Description:</label>
+                    <input type="text" id="product-description" required>
+                    <label for="product-price">Price:</label>
+                    <input type="number" id="product-price" required step="0.01">
+                    <button type="submit" id="update-button">Update</button>
+                    <button type="button" onclick="closeModal()">Cancel</button>
+                </form>
+            </div>
+        </div>
+
+                <!-- Modal for Creating New Product -->
+        <div id="createProductModal" class="modal" style="display:none;">
+            <div class="modal-content">
+                <span onclick="closeCreateProductModal()" class="close" title="Close Modal">×</span>
+                <h2>Create New Product</h2>
+                <form id="create-product-form" onsubmit="handleCreateProduct(event)">
+                    <label for="product-name">Product Name:</label>
+                    <input type="text" id="product-name" required placeholder="Enter Product Name">
+
+                    <label for="product-description">Description:</label>
+                    <textarea id="product-description" required placeholder="Enter Product Description"></textarea>
+
+                    <label for="product-image">Image URL:</label>
+                    <input type="text" id="product-image" required placeholder="Enter Image URL">
+
+                    <button type="submit">Create Product</button>
+                </form>
+            </div>
+        </div>
+
+
+        <!-- Payment Procedure Section -->
+        <section id="payment-procedure">
+            <h2>Payment Procedure</h2>
+            <div class="payment-buttons">
+                <!-- WhatsApp Button -->
+                <a href="https://wa.me/yourwhatsappnumber" target="_blank" class="btn btn-whatsapp">
+                    <i class="fab fa-whatsapp"></i> WhatsApp 
+                </a>
+
+                <!-- Call Us Button -->
+                <a href="tel:+0722250648" class="btn btn-call-us">
+                    <i class="fas fa-phone"></i> Call Us
+                </a>
+            </div>
+        </section>
+                <!-- Social Media Section -->
+        <section id="social-media">
+            <h2>Follow Us</h2>
+            <div class="social-icons">
+                <a href="https://facebook.com" target="_blank" class="social-icon">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://twitter.com" target="_blank" class="social-icon">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="https://instagram.com" target="_blank" class="social-icon">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://linkedin.com" target="_blank" class="social-icon">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+            </div>
+        </section>
+
 
         <section id="about">
             <h2>About Us</h2>
@@ -147,7 +240,7 @@
         <section id="contact">
             <h2>Contact Us</h2>
             <p>Email: andygitau444@mail.com</p>
-            <p>Phone N.o.: 0722250648</p>
+            <p>Phone Number: 0722250648</p>
         </section>
 
     </main>
@@ -157,6 +250,6 @@
     </footer>
 
     <!-- Link to your JavaScript file -->
-    <script src="index.js"></script> 
+    <script src="./script.js"></script> 
 </body>
 </html>

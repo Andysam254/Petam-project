@@ -1,49 +1,71 @@
+:root {
+    --primary-color: #007bff; /* Primary brand color */
+    --secondary-color: #0056b3; /* Darker shade for hover effects */
+    --white: #ffffff; /* White color */
+    --text-color: #333333; /* Default text color */
+    --background-color: #f4f4f4; /* Main background color */
+    --shadow-color: rgba(0, 0, 0, 0.1); /* Shadow color for elements */
+}
+
 /* General Styles */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background-color: var(--background-color);
 }
 
+/* Header Styles */
 header {
     display: flex;
-    align-items: center; /* Center items vertically */
-    justify-content: space-between; /* Space between logo and nav */
-    background-color: #464747ad; /* Navbar background color */
-    color: white;
-    padding: 15px 20px; /* Adjust padding for better spacing */
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(70, 71, 71, 0.85);
+    color: var(--white);
+    padding: 15px 20px;
 }
 
 .logo-container img {
-    height: 50px; /* Set logo height */
+    height: 50px;
 }
 
-h1 {
-    margin: 0; /* Remove default margin from h1 */
-    font-size: 24px; /* Set font size for title */
+/* Navigation Styles */
+nav {
+    background-color: var(--primary-color);
+    padding: 10px 20px;
 }
 
 nav ul {
-    list-style-type: none; /* Remove bullet points */
-    padding: 0; /* Remove default padding */
-    margin: 0; /* Remove default margin */
+    display: flex;
+    justify-content: flex-end;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
 }
 
 nav ul li {
-    display: inline; /* Display list items inline */
-    margin-left: 20px; /* Space between nav items */
+    margin-left: 30px;
 }
 
 nav ul li a {
-    color: white; /* Link color */
-    text-decoration: none; /* Remove underline from links */
-    font-weight: bold; /* Make links bold */
-    transition: color 0.3s ease; /* Smooth transition for hover effect */
+    color: var(--white);
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+/* Navbar Link Hover Effect */
 nav ul li a:hover {
-    color: #ffcc00; /* Change link color on hover */
+    background-color: rgba(255, 204, 0, 0.8);
+    color: var(--secondary-color);
+}
+
+/* Active Link Styles */
+nav ul li a.active {
+    background-color: var(--secondary-color);
+    color: var(--white);
 }
 
 /* Main Content */
@@ -51,72 +73,319 @@ main {
     padding: 20px;
 }
 
+/* Section Styles */
+section {
+    margin-bottom: 40px;
+    background-color: var(--white);
+    border-radius: 5px;
+    box-shadow: 0 2px 5px var(--shadow-color);
+    padding: 20px;
+}
+
 /* Products Section */
 #products {
-    margin-bottom: 40px;
+    padding: 20px;
 }
 
 .row {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between; /* Add spacing between product items */
+    justify-content: space-between;
 }
 
 .product-item {
-    background-color: white;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: var(--white);
+    border-radius: 8px;
+    box-shadow: 0 4px 10px var(--shadow-color);
     margin-bottom: 20px;
     padding: 15px;
-    flex-basis: calc(33.333% - 20px); /* Three columns layout with 20px gap */
-    box-sizing: border-box; /* Ensure padding and border are included in width */
+    flex-basis: calc(33.333% - 20px);
+    box-sizing: border-box;
+    transition: transform 0.3s ease;
 }
 
-h2 {
-    color: #007bff;
+.product-item:hover {
+    transform: scale(1.05);
 }
 
-p {
+.product-item h3 {
+    color: var(--primary-color);
+}
+
+.product-item img {
+    border-radius: 5px;
+}
+
+.product-item p {
     margin-bottom: 10px;
+}
+
+/* Button Styles within Product Item */
+.product-item button {
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.product-item button:hover {
+    background-color: var(--secondary-color);
 }
 
 /* Footer Styles */
 footer {
     text-align: center;
     padding: 20px 0;
-    background-color: #007bff; /* Same as header */
-    color: white;
+    background-color: var(--primary-color);
+    color: var(--white);
+    position: relative;
 }
 
-/* Category Section Styles */
+footer p {
+    margin: 0;
+    font-size: 14px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .product-item,
+    .category-item {
+        flex-basis: calc(50% - 20px);
+    }
+}
+
+@media (max-width: 480px) {
+    .product-item,
+    .category-item {
+        flex-basis: 100%;
+    }
+
+    footer {
+        font-size: 12px;
+    }
+}
+
+/* Payment Procedure Styles */
+#payment-procedure {
+    text-align: center;
+    margin: 40px 0;
+}
+
+.payment-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 15px;
+    border-radius: 5px;
+    color: var(--white);
+    text-decoration: none;
+}
+
+.btn-whatsapp {
+    background-color: #25D366; /* WhatsApp green */
+}
+
+.btn-call-us {
+    background-color: var(--primary-color);
+}
+
+/* Hover Effects */
+.btn-whatsapp:hover,
+.btn-call-us:hover {
+    opacity: 0.8;
+}
+
+/* About and Contact Section Styles */
+h2 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+p {
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* Social Media Section Styles */
+#social-media {
+    padding: 20px;
+    text-align: center;
+    background-color: var(--background-color);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px var(--shadow-color);
+}
+
+#social-media h2 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.social-icon {
+    font-size: 36px;
+    color: var(--primary-color);
+    transition: color 0.3s ease;
+}
+
+.social-icon:hover {
+    color: var(--secondary-color);
+}
+
+/* Categories Section Styles */
+#categories {
+    padding: 20px;
+    background-color: var(--background-color);
+}
+
+#categories h2 {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+#category-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+/* Category Item Styles */
 .category-item {
-    background-color: #fff;
-    border: 1px solid #ddd;
+    background-color: var(--white);
+    border-radius: 8px;
+    box-shadow: 0 4px 10px var(--shadow-color);
     padding: 15px;
     margin-bottom: 20px;
     text-align: center;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    flex-basis: calc(30% - 20px);
+    transition: transform 0.3s ease;
+}
+
+.category-item:hover {
+    transform: scale(1.05);
 }
 
 .category-item h3 {
-    margin-top: 0;
-    color: #007bff;
+    color: var(--primary-color);
+    margin-bottom: 10px;
 }
 
 .category-item p {
-    margin: 10px 0;
+    margin-bottom: 15px;
 }
 
-.category-item .btn {
-    background-color: #007bff;
-    color: white;
+/* Button Styles within Category Item */
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--white);
     padding: 10px 15px;
+    border-radius: 5px;
     text-decoration: none;
-    border-radius: 3px;
     transition: background-color 0.3s ease;
 }
 
-.category-item .btn:hover {
-    background-color: #0056b3;
+.btn-primary:hover {
+    background-color: var(--secondary-color);
+}
+#product-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px; /* Space between product items */
+}
+
+.product-item {
+    flex: 1 1 calc(50% - 40px); /* Two items per row with some spacing */
+    max-width: 400px; /* Set a maximum width for each product */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+}
+/* Create Button Styles */
+.create-button-container {
+    text-align: center; /* Center the button */
+    margin-top: 20px; /* Space above the button */
+}
+
+.btn-create {
+    background-color: var(--primary-color); /* Primary color for create button */
+    color: var(--white); /* White text color */
+    padding: 10px 20px; /* Padding inside the button */
+    border-radius: 5px; /* Rounded corners */
+    border: none; /* Remove default border */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 16px; /* Font size */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.btn-create:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}
+/* Modal Styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Form Styles */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form label {
+    margin-top: 10px; /* Space above labels */
+}
+
+form input,
+form textarea {
+    padding: 10px;
+    margin-top: 5px;
+}
+
+form button {
+    margin-top: 15px; /* Space above button */
 }
