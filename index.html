@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="./style.css"> <!-- Link to your CSS file -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
 </head>
 <body>
     <header>
@@ -16,120 +15,112 @@
         </div>
         <h1>Petam - Treated Posts Marketplace</h1>
         
-        <!-- Bootstrap Navbar -->
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-          <div class="container-fluid">
+    <!-- Bootstrap Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-              <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="#categories">Categories</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#products">Products</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#about">About Us</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#contact">Contact</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#cart">
-                    <i class="fas fa-shopping-cart"></i> Cart
-                  </a>
-                </li>
-              </ul>
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Products
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#products">Fencing Posts</a></li>
+                            <li><a class="dropdown-item" href="#products">Fibre Posts</a></li>
+                            <li><a class="dropdown-item" href="#products">Transmission Posts</a></li>
+                            <li><a class="dropdown-item" href="#products">Round Poles</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" role="button" onclick="openCart()">
+                            <i class="fas fa-shopping-cart"></i> Cart
+                        </a>
+                    </li>
+                    <!-- Login Button -->
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-outline-primary" href="#" role="button" onclick="openLoginModal()">Login</a>
+                    </li>
+                    <!-- Register Button -->
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-primary" href="#" role="button" onclick="openRegisterModal()">Register</a>
+                    </li>
+                </ul>
             </div>
-          </div>
-        </nav>
+        </div>
+    </nav>
+          
     </header>
     
 
     <main>
-        <!-- Categories Section -->
-        <section id="categories">
-            <h2>Categories of Treated Posts</h2>
-            <div id="category-cards" class="row">
-                <div class="col-md-4 category-item">
-                    <h3>Fencing Posts</h3>
-                    <p>Posts designed for agricultural and commercial fencing.</p>
-                    <a href="#products" class="btn btn-primary">View Products</a>
-                </div>
-                <div class="col-md-4 category-item">
-                    <h3>Fibre Posts</h3>
-                    <p>Lightweight, durable posts suitable for various applications.</p>
-                    <a href="#products" class="btn btn-primary">View Products</a>
-                </div>
-                <div class="col-md-4 category-item">
-                    <h3>Electricity Poles</h3>
-                    <p>Posts designed for electrical installations and power line support.</p>
-                    <a href="#products" class="btn btn-primary">View Products</a>
-                </div>
-                <div class="col-md-4 category-item">
-                    <h3>Round Poles</h3>
-                    <p>Posts designed for electrical installations and power line support.</p>
-                    <a href="#products" class="btn btn-primary">View Products</a>
-                </div>
-            </div>
-        </section>
-
         <!-- Products Section -->
         <section id="products">
             <h2>Available Treated Posts</h2>
             <div id="product-cards" class="row">
                 <!-- Static product cards -->
                 <div class="col-md-4 product-item">
-                    <h3>Fencing Post A</h3>
+                    <h3>Fencing Post </h3>
                     <img src="./WhatsApp Image 2024-10-16 at 11.37.57 AM (2).jpeg" alt="Fencing Post A" style="width: 100%; height: auto;">
                     <p>Description: Durable treated fencing post ideal for agricultural use.</p>
                     <p>Price: $25.00</p>
-                    <button onclick="viewProductDetails(1)">Add to cart</button>
+                    <button onclick="addToCart(1)">Add to cart</button>
                     <button onclick="viewProductDetails(1)">Delete</button>
                     <button onclick="viewProductDetails(1)">Update</button>
                 </div>
 
                 <div class="col-md-4 product-item">
-                    <h3>Fibre Post B</h3>
+                    <h3>Fibre Post </h3>
                     <img src="./WhatsApp Image 2024-10-16 at 11.38.40 AM.jpeg" alt="Fibre Post B" style="width: 100%; height: auto;">
                     <p>Description: Lightweight and strong fibre post suitable for various applications.</p>
                     <p>Price: $30.00</p>
-                    <button onclick="viewProductDetails(1)">Add to cart</button>
-                    <button onclick="viewProductDetails(1)">Delete</button>
-                    <button onclick="viewProductDetails(1)">Update</button>
+                    <button onclick="addToCart(2)">Add to cart</button>
+                    <button onclick="viewProductDetails(2)">Delete</button>
+                    <button onclick="viewProductDetails(2)">Update</button>
                 </div>
 
                 <div class="col-md-4 product-item">
-                    <h3>Kenya Power Post C</h3>
+                    <h3>Transmission Post</h3>
                     <img src="./WhatsApp Image 2024-10-16 at 11.38.45 AM(1).jpeg" alt="Kenya Power Post C" style="width: 100%; height: auto;">
                     <p>Description: High-quality treated post designed for electrical installations.</p>
                     <p>Price: $40.00</p>
-                    <button onclick="viewProductDetails(1)">Add to cart</button>
-                    <button onclick="viewProductDetails(1)">Delete</button>
-                    <button onclick="viewProductDetails(1)">Update</button>
+                    <button onclick="addToCart(3)">Add to cart</button>
+                    <button onclick="viewProductDetails(3)">Delete</button>
+                    <button onclick="viewProductDetails(3)">Update</button>
                 </div>
 
                 <div class="col-md-4 product-item">
-                    <h3>Kenya Power Post D</h3>
+                    <h3>Transmission Post</h3>
                     <img src="./WhatsApp Image 2024-10-16 at 11.38.49 AM.jpeg" alt="Kenya Power Post D" style="width: 100%; height: auto;">
                     <p>Description: High-quality treated post designed for electrical installations.</p>
                     <p>Price: $60.00</p>
-                    <button onclick="viewProductDetails(1)">Add to cart</button>
-                    <button onclick="viewProductDetails(1)">Delete</button>
-                    <button onclick="viewProductDetails(1)">Update</button>
+                    <button onclick="addToCart(4)">Add to cart</button>
+                    <button onclick="viewProductDetails(4)">Delete</button>
+                    <button onclick="viewProductDetails(4)">Update</button>
                 </div>
-
             </div>
 
             <!-- Create Button -->
             <div class="create-button-container">
                 <button class="btn-create" onclick="openCreateProductModal()">Create New Product</button>
             </div>
-
         </section>
 
+        <section id="cart-section" style="display: none;">
+            <h2>Your Cart</h2>
+            <div id="cart-content">
+                <p>Your cart is currently empty.</p>
+            </div>
+            <button onclick="closeCart()">Close Cart</button>
+        </section>
 
         <section id="product-details" style="display: none;">
             <h2>Product Details</h2>
@@ -149,34 +140,56 @@
             </form>
         </section>
 
+        <!-- Modal for Login -->
+        <div id="loginModal" class="modal" style="display:none;">
+            <div class="modal-content">
+                <span onclick="closeLoginModal()" class="close" title="Close Modal">×</span>
+                <h2>Login</h2>
+                <form id="login-form" onsubmit="handleLogin(event)">
+                    <label for="login-email">Email:</label>
+                    <input type="email" id="login-email" required placeholder="Enter your email">
+
+                    <label for="login-password">Password:</label>
+                    <input type="password" id="login-password" required placeholder="Enter your password">
+
+                    <button type="submit">Login</button>
+                    <button type="button" onclick="closeLoginModal()">Cancel</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Modal for Register -->
+        <div id="registerModal" class="modal" style="display:none;">
+            <div class="modal-content">
+                <span onclick="closeRegisterModal()" class="close" title="Close Modal">×</span>
+                <h2>Register</h2>
+                <form id="register-form" onsubmit="handleRegister(event)">
+                    <label for="register-name">Name:</label>
+                    <input type="text" id="register-name" required placeholder="Enter your name">
+
+                    <label for="register-email">Email:</label>
+                    <input type="email" id="register-email" required placeholder="Enter your email">
+
+                    <label for="register-password">Password:</label>
+                    <input type="password" id="register-password" required placeholder="Create a password">
+
+                    <button type="submit">Register</button>
+                    <button type="button" onclick="closeRegisterModal()">Cancel</button>
+                </form>
+            </div>
+        </div>
+
         <!-- Modal for Delete Confirmation -->
         <div id="deleteModal" class="modal" style="display:none;">
             <div class="modal-content">
                 <span onclick="closeModal()" class="close" title="Close Modal">×</span>
                 <p>Are you sure you want to delete this product?</p>
-                <button id="confirmDeleteBtn">Yes, Delete</button>
-                <button onclick="closeModal()">Cancel</button>
+                <button id="confirm-delete">Yes</button>
+                <button onclick="closeModal()">No</button>
             </div>
         </div>
 
-                <!-- Modal for Update Product -->
-        <div id="updateModal" class="modal" style="display:none;">
-            <div class="modal-content">
-                <span onclick="closeModal()" class="close" title="Close Modal">×</span>
-                <h2>Update Product</h2>
-                <form id="update-form" onsubmit="updateProduct(event)">
-                    <input type="hidden" id="product-id">
-                    <label for="product-description">Description:</label>
-                    <input type="text" id="product-description" required>
-                    <label for="product-price">Price:</label>
-                    <input type="number" id="product-price" required step="0.01">
-                    <button type="submit" id="update-button">Update</button>
-                    <button type="button" onclick="closeModal()">Cancel</button>
-                </form>
-            </div>
-        </div>
-
-                <!-- Modal for Creating New Product -->
+        <!-- Modal for Create Product -->
         <div id="createProductModal" class="modal" style="display:none;">
             <div class="modal-content">
                 <span onclick="closeCreateProductModal()" class="close" title="Close Modal">×</span>
@@ -188,68 +201,23 @@
                     <label for="product-description">Description:</label>
                     <textarea id="product-description" required placeholder="Enter Product Description"></textarea>
 
-                    <label for="product-image">Image URL:</label>
-                    <input type="text" id="product-image" required placeholder="Enter Image URL">
+                    <label for="product-price">Price:</label>
+                    <input type="number" id="product-price" required step="0.01" placeholder="Enter Price">
 
-                    <button type="submit">Create Product</button>
+                    <button type="submit">Create</button>
+                    <button type="button" onclick="closeCreateProductModal()">Cancel</button>
                 </form>
             </div>
         </div>
-
-
-        <!-- Payment Procedure Section -->
-        <section id="payment-procedure">
-            <h2>Payment Procedure</h2>
-            <div class="payment-buttons">
-                <!-- WhatsApp Button -->
-                <a href="https://wa.me/yourwhatsappnumber" target="_blank" class="btn btn-whatsapp">
-                    <i class="fab fa-whatsapp"></i> WhatsApp 
-                </a>
-
-                <!-- Call Us Button -->
-                <a href="tel:+0722250648" class="btn btn-call-us">
-                    <i class="fas fa-phone"></i> Call Us
-                </a>
-            </div>
-        </section>
-                <!-- Social Media Section -->
-        <section id="social-media">
-            <h2>Follow Us</h2>
-            <div class="social-icons">
-                <a href="https://facebook.com" target="_blank" class="social-icon">
-                    <i class="fab fa-facebook-f"></i>
-                </a>
-                <a href="https://twitter.com" target="_blank" class="social-icon">
-                    <i class="fab fa-twitter"></i>
-                </a>
-                <a href="https://instagram.com" target="_blank" class="social-icon">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a href="https://linkedin.com" target="_blank" class="social-icon">
-                    <i class="fab fa-linkedin-in"></i>
-                </a>
-            </div>
-        </section>
-
-
-        <section id="about">
-            <h2>About Us</h2>
-            <p>Petam connects suppliers and customers in the treated posts market, providing easy access to high-quality products.</p>
-        </section>
-
-        <section id="contact">
-            <h2>Contact Us</h2>
-            <p>Email: andygitau444@mail.com</p>
-            <p>Phone Number: 0722250648</p>
-        </section>
-
+        
     </main>
 
     <footer>
         <p>&copy; 2024 Petam. All rights reserved.</p>
     </footer>
 
-    <!-- Link to your JavaScript file -->
-    <script src="./script.js"></script> 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./script.js"></script> <!-- Link to your JS file -->
 </body>
 </html>

@@ -12,21 +12,21 @@ let products = JSON.parse(localStorage.getItem('products')) || [
         name: "Fibre Post B",
         description: "Lightweight and strong fibre post suitable for various applications.",
         price: 30.00,
-        imageUrl: "./WhatsApp Image 2024-10-16 at 11.37.57 AM (2).jpeg",
+        imageUrl: "./WhatsApp Image 2024-10-16 at 11.38.40 AM.jpeg",
     },
     {
         id: 3,
         name: "Kenya Power Post C",
         description: "High-quality treated post designed for electrical installations.",
         price: 40.00,
-        imageUrl: "./WhatsApp Image 2024-10-16 at 11.37.57 AM (2).jpeg",
+        imageUrl: "./WhatsApp Image 2024-10-16 at 11.38.45 AM(1).jpeg",
     },
     {
         id: 4,
         name: "Kenya Power Post D",
         description: "High-quality treated post designed for electrical installations.",
         price: 60.00,
-        imageUrl: "./WhatsApp Image 2024-10-16 at 11.37.57 AM (2).jpeg",
+        imageUrl: "./WhatsApp Image 2024-10-16 at 11.38.49 AM.jpeg",
     }
 ];
 
@@ -45,7 +45,7 @@ function displayProducts() {
 
     products.forEach(product => {
         productCards.innerHTML += `
-            <div class='product-item'>
+            <div class='col-md-4 product-item'>
                 <h3>${product.name}</h3>
                 <img src="${product.imageUrl}" alt="${product.name}" style='width: 100%; height: auto;'>
                 <p>Description: ${product.description}</p>
@@ -77,7 +77,7 @@ function addToCart(productId) {
 
 // Function to update cart display
 function updateCartDisplay() {
-    const cartItemsDiv = document.getElementById('cart-items');
+    const cartItemsDiv = document.getElementById('cart-content');
     cartItemsDiv.innerHTML = ''; // Clear existing cart items
     let totalPrice = 0;
 
@@ -87,7 +87,6 @@ function updateCartDisplay() {
     });
 
     document.getElementById('total-price').innerText = `Total Price: $${totalPrice.toFixed(2)}`;
-    document.getElementById('cart').style.display = cart.length ? 'block' : 'none'; // Show/Hide the cart section
 }
 
 // Function to handle checkout
@@ -108,7 +107,7 @@ function checkout() {
 // Function to open delete modal
 function openDeleteModal(productId) {
     document.getElementById('deleteModal').style.display = 'block';
-    document.getElementById('confirmDeleteBtn').onclick = () => deleteProduct(productId);
+    document.getElementById('confirm-delete').onclick = () => deleteProduct(productId);
 }
 
 // Function to delete a product
@@ -118,7 +117,7 @@ function deleteProduct(productId) {
         products.splice(index, 1); // Remove product from array
         alert(`Product ID ${productId} deleted!`);
         saveToLocalStorage(); // Save to localStorage
-        closeModal();
+        closeModal('deleteModal');
         displayProducts(); // Refresh the product list
     } else {
         console.error("Product not found!");
@@ -126,8 +125,8 @@ function deleteProduct(productId) {
 }
 
 // Function to close modal
-function closeModal() {
-    document.getElementById('deleteModal').style.display = 'none';
+function closeModal(modalId) {
+    document.getElementById(modalId).style.display = 'none';
 }
 
 // Function to open update modal
@@ -161,7 +160,7 @@ function updateProduct(event, productId) {
         product.price = updatedPrice;
         alert(`Product ID ${productId} updated!`);
         saveToLocalStorage(); // Save to localStorage
-        closeModal(); 
+        closeModal('purchase-section');
         displayProducts(); // Refresh the product list after update
     } else {
         console.error("Product not found!");
@@ -186,7 +185,7 @@ function handleCreateProduct(event) {
     // Get values from the form
     const productName = document.getElementById('product-name').value;
     const productDescription = document.getElementById('product-description').value;
-    const productImage = document.getElementById('product-image').value;
+    const productImage = document.getElementById('product-image').value; // Ensure you have a corresponding input for the image URL
     const productPrice = parseFloat(document.getElementById('product-price').value);
 
     if (!productName || !productDescription || isNaN(productPrice) || productPrice <= 0) {
@@ -216,3 +215,78 @@ function handleCreateProduct(event) {
 // Initial call to display products and update cart on page load
 displayProducts();
 updateCartDisplay();
+
+// Event listeners for opening the modals
+document.querySelector('.btn-outline-primary').addEventListener('click', function() {
+    openModal('loginModal');
+});
+
+document.querySelector('.btn-primary').addEventListener('click', function() {
+    openModal('registerModal');
+});
+
+// Close the modal when clicking outside of it
+window.onclick = function(event) {
+    if (event.target.classList.contains('modal')) {
+        event.target.style.display = 'none';
+    }
+};
+
+function openLoginModal() {
+    document.getElementById("loginModal").style.display = "block";
+}
+
+function closeLoginModal() {
+    document.getElementById("loginModal").style.display = "none";
+}
+
+function openRegisterModal() {
+    document.getElementById("registerModal").style.display = "block";
+}
+
+function closeRegisterModal() {
+    document.getElementById("registerModal").style.display = "none";
+}
+
+// Handle Login Form Submission
+function handleLogin(event) {
+    event.preventDefault();
+    // Handle login logic here
+    closeLoginModal();
+}
+
+// Handle Register Form Submission
+function handleRegister(event) {
+    event.preventDefault();
+    // Handle registration logic here
+    closeRegisterModal();
+}
+
+// Function to open the cart
+function openCart() {
+    const cartSection = document.getElementById('cart-section');
+    const cartContent = document.getElementById('cart-content');
+
+    if (cart.length === 0) {
+        cartContent.innerHTML = '<p>Your cart is currently empty.</p>';
+    } else {
+        const cartItems = cart.map(item => `<p>${item.name} - $${item.price.toFixed(2)}</p>`).join('');
+        cartContent.innerHTML = cartItems;
+    }
+
+    cartSection.style.display = 'block';
+}
+
+// Function to close the cart
+function closeCart() {
+    document.getElementById('cart-section').style.display = 'none';
+}
+
+// Add event listeners for modal buttons
+document.getElementById('open-cart-btn').addEventListener('click', openCart);
+document.getElementById('close-cart-btn').addEventListener('click', closeCart);
+document.getElementById('checkout-btn').addEventListener('click', checkout);
+document.getElementById('create-product-btn').addEventListener('click', openCreateProductModal);
+document.getElementById('close-create-modal').addEventListener('click', closeCreateProductModal);
+document.getElementById('create-product-form').addEventListener('submit', handleCreateProduct);
+
