@@ -281,6 +281,167 @@ function openCart() {
 function closeCart() {
     document.getElementById('cart-section').style.display = 'none';
 }
+// Sample cart data to simulate items being added to cart
+let cartItems = [
+    { id: 1, name: "Fencing Post", price: 25.00, quantity: 1 },
+    { id: 2, name: "Fibre Post", price: 30.00, quantity: 2 },
+];
+
+// Function to open the payment container and populate payment items
+function proceedToPayment() {
+    if (cartItems.length === 0) {
+        alert("Your cart is empty!");
+        return;
+    }
+
+    // Show the payment section
+    document.getElementById('payment-section').style.display = 'block';
+
+    // Populate the items list
+    let paymentItemsList = document.getElementById('payment-items-list');
+    paymentItemsList.innerHTML = ''; // Clear existing items
+
+    let totalPrice = 0;
+
+    // Iterate through cart items to display them in the payment section
+    cartItems.forEach(item => {
+        let listItem = document.createElement('li');
+        listItem.textContent = `${item.name} - $${item.price.toFixed(2)} x ${item.quantity}`;
+        paymentItemsList.appendChild(listItem);
+        
+        // Calculate total price
+        totalPrice += item.price * item.quantity;
+    });
+
+    // Display total price
+    document.getElementById('total-price').textContent = `Total: $${totalPrice.toFixed(2)}`;
+}
+
+// Function to close the payment container
+function closePaymentContainer() {
+    document.getElementById('payment-section').style.display = 'none';
+}
+
+// Function to handle the payment process
+function handlePayment(event) {
+    event.preventDefault(); // Prevent the default form submission
+
+    // Get form values
+    let cardNumber = document.getElementById('card-number').value;
+    let cardExpiry = document.getElementById('card-expiry').value;
+    let cardCvc = document.getElementById('card-cvc').value;
+
+    // Simple form validation
+    if (validatePaymentForm(cardNumber, cardExpiry, cardCvc)) {
+        // Simulate payment processing
+        alert("Payment processed successfully!");
+
+        // After successful payment, clear the cart and reset the payment form
+        cartItems = [];
+        clearPaymentForm();
+
+        // Hide the payment container
+        closePaymentContainer();
+    } else {
+        alert("Invalid payment details. Please check your inputs and try again.");
+    }
+}
+
+// Function to validate the payment form
+function validatePaymentForm(cardNumber, cardExpiry, cardCvc) {
+    const cardNumberPattern = /^\d{16}$/; // 16 digits for card number
+    const cardExpiryPattern = /^(0[1-9]|1[0-2])\/\d{2}$/; // MM/YY format
+    const cardCvcPattern = /^\d{3}$/; // 3 digits for CVC
+
+    return cardNumberPattern.test(cardNumber) &&
+           cardExpiryPattern.test(cardExpiry) &&
+           cardCvcPattern.test(cardCvc);
+}
+
+// Function to clear the payment form after successful payment
+function clearPaymentForm() {
+    document.getElementById('card-number').value = '';
+    document.getElementById('card-expiry').value = '';
+    document.getElementById('card-cvc').value = '';
+}
+
+// Function to simulate adding an item to the cart (for testing purposes)
+function addToCart(productId) {
+    let product = cartItems.find(item => item.id === productId);
+    if (product) {
+        product.quantity += 1; // Increment quantity if the product is already in the cart
+    } else {
+        // Add new product to cart
+        let newItem = { id: productId, name: "New Product", price: 50.00, quantity: 1 };
+        cartItems.push(newItem);
+    }
+    alert("Product added to cart!");
+}
+
+// Example of showing the cart and allowing users to proceed to payment
+function openCart() {
+    proceedToPayment();
+}
+// Function to handle M-Pesa payment process
+function handleMpesaPayment(event) {
+    event.preventDefault(); // Prevent the form from submitting normally
+
+    // Get the phone number entered
+    let phoneNumber = document.getElementById('mpesa-phone').value;
+
+    // Simple validation to check if the phone number is valid (Kenyan phone numbers start with 07, 01, etc.)
+    const phoneNumberPattern = /^(?:07|01)\d{8}$/;
+
+    if (!phoneNumberPattern.test(phoneNumber)) {
+        alert("Please enter a valid M-Pesa phone number.");
+        return;
+    }
+
+    // Simulate payment processing
+    alert("M-Pesa payment request sent to " + phoneNumber + ". Please complete the payment on your mobile.");
+
+    // After successful simulation, clear the M-Pesa form
+    document.getElementById('mpesa-phone').value = '';
+
+    // Hide the payment container after submission
+    closePaymentContainer();
+}
+
+// Example of how to open the cart and show both payment options
+function proceedToPayment() {
+    if (cartItems.length === 0) {
+        alert("Your cart is empty!");
+        return;
+    }
+
+    // Show the payment section
+    document.getElementById('payment-section').style.display = 'block';
+
+    // Populate the items list
+    let paymentItemsList = document.getElementById('payment-items-list');
+    paymentItemsList.innerHTML = ''; // Clear existing items
+
+    let totalPrice = 0;
+
+    // Iterate through cart items to display them in the payment section
+    cartItems.forEach(item => {
+        let listItem = document.createElement('li');
+        listItem.textContent = `${item.name} - $${item.price.toFixed(2)} x ${item.quantity}`;
+        paymentItemsList.appendChild(listItem);
+
+        // Calculate total price
+        totalPrice += item.price * item.quantity;
+    });
+
+    // Display total price
+    document.getElementById('total-price').textContent = `Total: $${totalPrice.toFixed(2)}`;
+}
+
+// Function to close the payment container
+function closePaymentContainer() {
+    document.getElementById('payment-section').style.display = 'none';
+}
+
 
 // Add event listeners for modal buttons
 document.getElementById('open-cart-btn').addEventListener('click', openCart);

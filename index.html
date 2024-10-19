@@ -65,6 +65,7 @@
         <!-- Products Section -->
         <section id="products">
             <h2>Products</h2>
+            <br>
             <div id="product-cards" class="row">
                 <!-- Static product cards -->
                 <div class="col-md-4 product-item">
@@ -113,13 +114,14 @@
                 <button class="btn-create" onclick="openCreateProductModal()">Create New Product</button>
             </div>
         </section>
-
+            <!-- Cart Section -->
         <section id="cart-section" style="display: none;">
             <h2>Your Cart</h2>
-            <div id="cart-content">
+             <div id="cart-content">
                 <p>Your cart is currently empty.</p>
             </div>
             <button onclick="closeCart()">Close Cart</button>
+            <button onclick="proceedToPayment()" id="proceed-payment-btn" style="display: none;">Proceed to Payment</button>
         </section>
 
         <section id="product-details" style="display: none;">
@@ -210,6 +212,67 @@
             </div>
         </div>
         
+        <!-- Payment Section -->
+        <section id="payment-section" style="display: none;">
+            <h2>Payment Details</h2>
+            <ul id="payment-items-list">
+                <!-- List of items to be populated by JavaScript -->
+            </ul>
+            <p id="total-price">Total: $0.00</p>
+
+            <!-- Card Payment Form -->
+            <h3>Pay with Credit Card</h3>
+            <form id="payment-form" onsubmit="handlePayment(event)">
+                <label for="card-number">Card Number:</label>
+                <input type="text" id="card-number" placeholder="Enter your card number" required>
+
+                <label for="card-expiry">Expiry Date:</label>
+                <input type="text" id="card-expiry" placeholder="MM/YY" required>
+
+                <label for="card-cvc">CVC:</label>
+                <input type="text" id="card-cvc" placeholder="CVC" required>
+
+                <button id="pay-btn" type="submit">Pay Now</button>
+            </form>
+
+            <!-- M-Pesa Payment Form -->
+            <h3>Pay with M-Pesa</h3>
+            <form id="mpesa-form" onsubmit="handleMpesaPayment(event)">
+                <label for="mpesa-phone">M-Pesa Phone Number:</label>
+                <input type="tel" id="mpesa-phone" placeholder="Enter your phone number" required>
+
+                <button id="mpesa-pay-btn" type="submit">Pay via M-Pesa</button>
+            </form>
+
+            <button onclick="closePaymentContainer()">Cancel</button>
+        </section>
+        <!-- Contact Information Section -->
+        <section id="contact-info" class="contact-section">
+            <h2>Contact Us</h2>
+            <p>If you have any questions or inquiries, feel free to reach out to us!</p>
+            
+            <!-- Contact Information -->
+            <div class="contact-details">
+                <p><i class="fas fa-phone"></i> Phone: +254 702248373</p>
+                <p><i class="fas fa-envelope"></i> Email: andygitau444@gmail.com</p>
+                <p><i class="fas fa-map-marker-alt"></i> Address: 123 Petam Street, Nairobi, Kenya</p>
+            </div>
+
+            <!-- Social Media Handles -->
+            <div class="social-media">
+                <h3>Follow Us</h3>
+                <ul class="social-media-icons">
+                    <li><a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i> Facebook</a></li>
+                    <li><a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i> Twitter</a></li>
+                    <li><a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></li>
+                    <li><a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+                </ul>
+            </div>
+        </section>
+
+
+
+
     </main>
 
     <footer>
