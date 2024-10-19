@@ -15,24 +15,17 @@ body {
     background-color: var(--background-color);
 }
 
-/* Header Styles */
-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: rgba(70, 71, 71, 0.85);
-    color: var(--white);
-    padding: 15px 20px;
-}
-
-.logo-container img {
-    height: 50px;
-}
-
-/* Navigation Styles */
+/* Navbar Styles */
 nav {
-    background-color: var(--primary-color);
+    background: linear-gradient(135deg, #007bff, #0056b3); /* Gradient background */
     padding: 10px 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+    border-radius: 10px; /* Rounded corners */
+    transition: background 0.3s ease; /* Smooth transition */
+}
+
+nav:hover {
+    background: linear-gradient(135deg, #0056b3, #007bff); /* Reverse gradient on hover */
 }
 
 nav ul {
@@ -53,21 +46,22 @@ nav ul li a {
     font-weight: bold;
     padding: 10px 15px;
     border-radius: 5px;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease; /* Added transform for hover */
 }
 
 /* Navbar Link Hover Effect */
 nav ul li a:hover {
     background-color: rgba(255, 204, 0, 0.8);
     color: var(--secondary-color);
+    transform: scale(1.05); /* Slightly enlarge on hover */
 }
 
 /* Active Link Styles */
 nav ul li a.active {
     background-color: var(--secondary-color);
     color: var(--white);
+    box-shadow: 0 0 10px rgba(255, 204, 0, 0.5); /* Glow effect for active link */
 }
-
 /* Main Content */
 main {
     padding: 20px;
@@ -454,4 +448,82 @@ form button {
   .close:hover {
     color: red;
   }
-  
+  .navbar {
+    background-color: #0b0c10; 
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-links li {
+    margin: 0 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    font-family: 'Orbitron', sans-serif; 
+    font-size: 18px;
+    letter-spacing: 1px;
+    color: #66fcf1; 
+    position: relative;
+    padding: 10px 20px;
+    transition: color 0.4s ease;
+}
+
+
+.nav-links a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    border: 2px solid #66fcf1;
+    transform: scale(0);
+    transition: transform 0.4s ease;
+    opacity: 0.7;
+}
+
+.nav-links a:hover::before {
+    transform: scale(1);
+    box-shadow: 0 0 15px #66fcf1, 0 0 30px #66fcf1, 0 0 45px #66fcf1;
+}
+
+.nav-links a:hover {
+    color: #fff;
+}
+
+
+.nav-links a:hover {
+    transition: color 0.4s ease;
+}
+
+
+@media screen and (max-width: 768px) {
+    .nav-links {
+        flex-direction: column;
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+    }
+}
+body {
+    background-image: url('./WhatsApp\ Image\ 2024-10-19\ at\ 4.04.20\ PM.jpeg'); /* Path to your image */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white; /* Optional: Change text color for better contrast */
+}
