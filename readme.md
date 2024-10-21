@@ -12,7 +12,7 @@ The application includes a  landing page showing what i do, my education backgro
 * And you are all done
 
 ## Live server
-* You can view the web live on [Petam](https://andysam254.github.io/Petam-project/)
+* You can view the web live on [Petam](https://andysam254.github.io/Petam-project/https://petam-project.vercel.app/)
 
 ## Known Bugs
 The application works perfectly well, no bugs.
