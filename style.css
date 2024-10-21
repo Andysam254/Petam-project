@@ -129,20 +129,6 @@ section {
     background-color: var(--secondary-color);
 }
 
-/* Footer Styles */
-footer {
-    text-align: center;
-    padding: 20px 0;
-    background-color: var(--primary-color);
-    color: var(--white);
-    position: relative;
-}
-
-footer p {
-    margin: 0;
-    font-size: 14px;
-}
-
 /* Responsive Design */
 @media (max-width: 768px) {
     .product-item,
@@ -344,7 +330,37 @@ p {
 
 .modal-content {
     background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
+    margin: 15% auto;/* Footer Styles */
+    footer {
+        background-color: #333; /* Dark background */
+        color: white; /* White text */
+        padding: 20px 0; /* Padding for top and bottom */
+        text-align: center; /* Center text */
+    }
+    
+    .footer-content {
+        max-width: 800px; /* Limit width */
+        margin: 0 auto; /* Center horizontally */
+    }
+    
+    .footer-links {
+        list-style-type: none; /* Remove default list styles */
+        padding: 0; /* Remove padding */
+    }
+    
+    .footer-links li {
+        display: inline; /* Display links inline */
+        margin: 0 15px; /* Spacing between links */
+    }
+    
+    .footer-links a {
+        color: white; /* White text for links */
+        text-decoration: none; /* Remove underline */
+    }
+    
+    .footer-links a:hover {
+        text-decoration: underline; /* Underline on hover */
+    } /* 15% from the top and centered */
     padding: 20px;
     border: 1px solid #888;
     width: 80%; /* Could be more or less, depending on screen size */
@@ -748,5 +764,41 @@ button.remove-btn:hover {
     .social-media-icons li {
         margin-right: 10px;
     }
+}
+#about {
+    background-color: white; /* Removes any background color */
+    padding: 20px; /* Optional: Adds some padding to make it look nice */
+    color: inherit; /* Ensures the text color stays consistent with the page theme */
+}
+/* Footer Styles */
+footer {
+    background-color: #056ddc; /* Dark background */
+    color: white; /* White text */
+    padding: 20px 0; /* Padding for top and bottom */
+    text-align: center; /* Center text */
+}
+
+.footer-content {
+    max-width: 800px; /* Limit width */
+    margin: 0 auto; /* Center horizontally */
+}
+
+.footer-links {
+    list-style-type: none; /* Remove default list styles */
+    padding: 0; /* Remove padding */
+}
+
+.footer-links li {
+    display: inline; /* Display links inline */
+    margin: 0 15px; /* Spacing between links */
+}
+
+.footer-links a {
+    color: white; /* White text for links */
+    text-decoration: none; /* Remove underline */
+}
+
+.footer-links a:hover {
+    text-decoration: underline; /* Underline on hover */
 }
 
